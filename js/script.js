@@ -7,7 +7,7 @@ let pokemonRepository = (function () {
   function getAll(){
     return pokemonList;
   }
-  function add(pokemon){
+  function add(item){
     return pokemonRepository.add(item);
   }
   return{
@@ -24,9 +24,12 @@ let pokemonRepository = (function () {
 //];
 
 pokemonRepository.getAll().forEach(function(pokemon) {
-  document.write("<p>" + pokemon.name + " (" + pokemon.height + " ft) - " + pokemon.type + "</p>" );
+  document.write("<p>" + pokemon.name + " (" + pokemon.height +" ft");
+  if(pokemon.height>1){
+    document.write(" - So big!")
+  }
+  document.write(" ) - " + pokemon.type + "</p>");
 });
-
 
 
 
