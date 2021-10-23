@@ -3,12 +3,23 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <title>Pokedex</title>
   </head>
   <body>
-    <h1>Pokedex</h1>
+    <div class="heading">
+      <div class="headcontainer">
+        <div class="head">
+          <img class="pokeball pokeball1" src="svg/pokeball-pic.svg">
+          <h1>Pokedex</h1>
+          <img class="pokeball pokeball2" src="svg/pokeball-pic.svg">
+        </div>
+      </div>
+      <div class="pokesearch">
+        <input placeholder="Pokesearch"></input>
+      </div>
+    </div>
     <ul class="pokemon-list"></ul>
     <script src="js/promise-polyfill.js"></script>
     <script src="js/fetch-polyfill.js"></script>
