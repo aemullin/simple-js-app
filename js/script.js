@@ -42,6 +42,7 @@ let pokemonRepository = (function () {
       item.imageUrl = details.sprites.front_default;
       item.height = details.height;
       item.types = details.types;
+      item.abilities = details.abilities;
     }).catch(function (e) {
       console.error(e);
     });
@@ -61,8 +62,62 @@ let pokemonRepository = (function () {
 function showDetails(pokemon) {
   loadDetails(pokemon).then(function () {
     console.log(pokemon);
+    showModal(pokemon);
   });
 }
+let modalContainer = document.querySelector('#modal-container');
+function showModal(pokemon){
+  modalContainer.innerHTML = ""
+  let modal = document.createElement('div');
+  modal.classList.add('modal');
+  modalContainer.classList.add('is-visible');
+  let closeButton = document.createElement('button');
+  closeButton.classList.add('close-button');
+  closeButton.innerText = 'close'
+  closeButton.addEventListener('click', hideModal);
+  let pokemonTitle = document.createElement('h1');
+  pokemonTitle.classList.add('pokemon-name')
+  pokemonTitle.innerText = pokemon.name;
+  let imageContainer = document.createElement('div')
+  imageContainer.classList.add('image-container')
+  let pokemonImage = document.createElement('img');
+  pokemonImage.classList.add('pokemonimage');
+  pokemonImage.src = pokemon.imageUrl;
+  let pokemonStat = document.createElement('ul');
+  pokemonStat.classList.add('pokemon-stat');
+  let pokemonHeight = document.createElement('li');
+  pokemonHeight.innerText = 'Height: ' + pokemon.height;
+  let pokemonType = document.createElement('li');
+  if (pokemon.types[1]){
+    pokemonType.innerText = 'Type: ' + pokemon.types[0].type.name + ", " + pokemon.types[1].type.name
+  } else{
+    pokemonType.innerText = 'Type: ' + pokemon.types[0].type.name
+  }
+
+
+  modalContainer.appendChild(modal)
+  modal.appendChild(closeButton)
+  modal.appendChild(pokemonTitle)
+  modal.appendChild(imageContainer)
+  imageContainer.appendChild(pokemonImage)
+  modal.appendChild(pokemonStat)
+  pokemonStat.appendChild(pokemonHeight)
+  pokemonStat.appendChild(pokemonType)
+}
+function hideModal(pokemon){
+  modalContainer.classList.remove('is-visible');
+}
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+    hideModal();
+  }
+});
+modalContainer.addEventListener('click', (e) => {
+  let target = e.target;
+  if (target === modalContainer) {
+    hideModal();
+  }
+});
 return{
     add: add,
     loadList: loadList,
