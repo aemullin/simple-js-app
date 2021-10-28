@@ -89,10 +89,16 @@ function showModal(pokemon){
   let pokemonStat = document.createElement('ul');
   pokemonStat.classList.add('pokemon-stat');
   let pokemonHeight = document.createElement('li');
-  pokemonHeight.innerText = 'Height: ' + pokemon.height;
+  //decimeters most practically describes the height provided by the API so i convert the number to ft.
+  let height = (pokemon.height*0.328084)
+  height = height.toFixed(2)
+  pokemonHeight.innerText = 'Height: ' + height + ' ft';
   pokemonHeight.classList.add('pokemon-height');
   let pokemonWeight = document.createElement('li');
-  pokemonWeight.innerText = 'Weight: ' + pokemon.weight;
+  //Hectogram most practically describes the weight provided by the API so i convert the number to ft.
+  let weight = (pokemon.weight*0.220462)
+  weight = weight.toFixed(2)
+  pokemonWeight.innerText = 'Weight: ' + weight + ' lbs';
   pokemonWeight.classList.add('pokemon-weight');
   let pokemonType = document.createElement('li');
   pokemonType.classList.add('pokemon-type');
