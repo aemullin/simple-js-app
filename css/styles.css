@@ -98,7 +98,7 @@ input{
 .modal{
   background-color: darkred;
   width: 75%;
-  height: 60%;
+  height: 66.7%;
   border-radius: 10px;
   overflow: auto;
   box-shadow: 8px 6px 38px rgba(0, 0, 0, 0.8);
