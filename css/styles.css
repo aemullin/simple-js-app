@@ -98,30 +98,32 @@ input{
 .modal{
   background-color: darkred;
   width: 75%;
+  height: 60%;
   border-radius: 10px;
   overflow: auto;
   box-shadow: 8px 6px 38px rgba(0, 0, 0, 0.8);
+  margin-top: auto;
+  margin-bottom: auto;
 }
 .info-container{
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .image-container{
-  width: 300px;
-  height: 300px;
+  width: 30%;
+  height: 100%;
   background-color: white;
   border-radius: 15px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 75px;
-  margin-bottom: 75px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 20px;
   box-shadow: 4px 3px 19px rgba(0, 0, 0, 0.7);
 }
 .pokemonimage{
-  width: 300px;
-  height: 300px;
+  width: 100%;
+  height: 100%;
 }
 
 .pokemon-name{
@@ -129,14 +131,18 @@ input{
 }
 
 .pokemon-stat{
-  font-size: 18px;
-  list-style: none;
-  margin-right: 115px;
-  line-height: 50px
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .pokemon-type, .pokemon-height, .pokemon-weight{
   margin-top: 65px;
+  padding-left: none;
 }
 
 .close-button{
@@ -181,5 +187,70 @@ input{
   .pokemon-list{
     columns: 1;
   }
+
+  .pokemon-name{
+    font-size: 15px;
+    margin-left: 0px;
+  }
+
+  .modal{
+    width: 55%;
+  }
+  .close-button{
+    float: none;
+    margin-right: 0px;
+  }
+
+  .pokemon-image, .image-container{
+  width: 150px;
+  height: 150px;
+  }
+
+  .pokemon-type, .pokemon-height, .pokemon-weight{
+    margin-top: 2px;
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 1300px){
+  .info-container{
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .pokemon-type, .pokemon-height, .pokemon-weight{
+    margin-top: 5px;
+  }
+
+  .image-container{
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .pokemon-stat{
+    font-size: 100%;
+    list-style: none;
+    margin-right: 30px;
+    line-height: 25px
+  }
+}
+
+@media (max-width: 385px){
+  .pokemon-name{
+    font-size: 12px;
+  }
+  .pokemon-stat{
+    font-size: 6px;
+  }
+  .pokemon-image, .image-container{
+  width: 100px;
+  height: 100px;
+  }
+}
+
+@media (max-height: 700px) {
+    .modal{
+      height: 90%;
+    }
 
 }

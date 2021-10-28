@@ -86,21 +86,21 @@ function showModal(pokemon){
   let pokemonImage = document.createElement('img');
   pokemonImage.classList.add('pokemonimage');
   pokemonImage.src = pokemon.imageUrl;
-  let pokemonStat = document.createElement('ul');
+  let pokemonStat = document.createElement('div');
   pokemonStat.classList.add('pokemon-stat');
-  let pokemonHeight = document.createElement('li');
+  let pokemonHeight = document.createElement('p');
   //decimeters most practically describes the height provided by the API so i convert the number to ft.
   let height = (pokemon.height*0.328084)
   height = height.toFixed(2)
   pokemonHeight.innerText = 'Height: ' + height + ' ft';
   pokemonHeight.classList.add('pokemon-height');
-  let pokemonWeight = document.createElement('li');
+  let pokemonWeight = document.createElement('p');
   //Hectogram most practically describes the weight provided by the API so i convert the number to ft.
   let weight = (pokemon.weight*0.220462)
   weight = weight.toFixed(2)
   pokemonWeight.innerText = 'Weight: ' + weight + ' lbs';
   pokemonWeight.classList.add('pokemon-weight');
-  let pokemonType = document.createElement('li');
+  let pokemonType = document.createElement('p');
   pokemonType.classList.add('pokemon-type');
   if (pokemon.types[1]){
     pokemonType.innerText = 'Type: ' + pokemon.types[0].type.name + ", " + pokemon.types[1].type.name
