@@ -246,11 +246,7 @@ input{
   width: 100px;
   height: 100px;
   }
-}
-
-@media (max-height: 700px) {
-    .modal{
-      height: 90%;
-    }
-
+  .modal{
+    width: 75%;
+  }
 }
