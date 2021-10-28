@@ -41,6 +41,7 @@ let pokemonRepository = (function () {
     }).then(function (details){
       item.imageUrl = details.sprites.front_default;
       item.height = details.height;
+      item.weight = details.weight
       item.types = details.types;
       item.abilities = details.abilities;
     }).catch(function (e) {
@@ -78,6 +79,8 @@ function showModal(pokemon){
   let pokemonTitle = document.createElement('h1');
   pokemonTitle.classList.add('pokemon-name')
   pokemonTitle.innerText = pokemon.name;
+  let infoContainer = document.createElement('div')
+  infoContainer.classList.add('info-container')
   let imageContainer = document.createElement('div')
   imageContainer.classList.add('image-container')
   let pokemonImage = document.createElement('img');
@@ -87,7 +90,12 @@ function showModal(pokemon){
   pokemonStat.classList.add('pokemon-stat');
   let pokemonHeight = document.createElement('li');
   pokemonHeight.innerText = 'Height: ' + pokemon.height;
+  pokemonHeight.classList.add('pokemon-height');
+  let pokemonWeight = document.createElement('li');
+  pokemonWeight.innerText = 'Weight: ' + pokemon.weight;
+  pokemonWeight.classList.add('pokemon-weight');
   let pokemonType = document.createElement('li');
+  pokemonType.classList.add('pokemon-type');
   if (pokemon.types[1]){
     pokemonType.innerText = 'Type: ' + pokemon.types[0].type.name + ", " + pokemon.types[1].type.name
   } else{
@@ -98,10 +106,12 @@ function showModal(pokemon){
   modalContainer.appendChild(modal)
   modal.appendChild(closeButton)
   modal.appendChild(pokemonTitle)
-  modal.appendChild(imageContainer)
+  modal.appendChild(infoContainer)
+  infoContainer.appendChild(imageContainer)
   imageContainer.appendChild(pokemonImage)
-  modal.appendChild(pokemonStat)
+  infoContainer.appendChild(pokemonStat)
   pokemonStat.appendChild(pokemonHeight)
+  pokemonStat.appendChild(pokemonWeight)
   pokemonStat.appendChild(pokemonType)
 }
 function hideModal(pokemon){
