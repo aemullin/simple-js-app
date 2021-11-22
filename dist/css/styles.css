@@ -3,12 +3,23 @@
   text-align: center;
 }
 .pokemon-item:hover{
+  background-color: red;
   opacity: 0.8;
+  box-shadow: 4px 3px 19px rgba(0, 0, 0, 0.2);
 }
 .pokemon-item {
-  background-color: red;
+  background-color: darkred;
   color: white;
+  width: 300px;
+  border-radius: 20px;
+  box-shadow: 4px 3px 19px rgba(0, 0, 0, 0.5);
 }
 .list-group-item{
   background-color: darkgrey;
+}
+.modal{
+  text-align: center;
+}
+.modal-title{
+  margin:auto;
 }
