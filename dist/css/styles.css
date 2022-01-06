@@ -1,6 +1,15 @@
 
+.pokemon-list, html{
+  background-color: darkgrey;
+}
 .pokemon-list {
   text-align: center;
+}
+.search-button {
+  border-color: black;
+  border-width: 1px;
+  margin-left: 3px;
+  color: white;
 }
 .pokemon-item:hover{
   background-color: red;
